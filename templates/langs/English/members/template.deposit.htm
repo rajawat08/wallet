@@ -1,4 +1,4 @@
-                                                            <?if($post['CardStatus']){
+                                <?if($post['CardStatus']){
 echo $data['Message'];
  exit; }
 ?>
@@ -7,11 +7,20 @@ echo $data['Message'];
 <?if(isset($data['ScriptLoaded'])){?><?if(!$post['PostSent']){?>
  <div class="gaf-container main-container " style="padding: 0;min-width:inherit">
      
+        
+        
+       
+        
+        
+        
+        
+        
+ 
 <div id="content" style="margin:0px;padding:0;min-height:inherit" class="container deposit-funds">
-    <div class="row-fluid">
+    <div class="row">
        
            
-            <div id="content-main" class="span9">
+            <div id="content-main" class="span8">
                 
 
                 <form class="form deposit_form" method="post">
@@ -596,4 +605,4 @@ $("#amount").on("blur",function(event){
 <?if($post['dtype']=='autorize'){?><?if(!$post['ShowCheckInfo']){?><tr><td align=center valign=top><table class=frame width=100% border=0 cellspacing=1 cellpadding=4><tr><td colspan=2 bgcolor=#CCCCCC><b>BILLING INFORMATION</b></td></tr><?if($data['Error']){?><tr><td colspan=2 class=error><?=prntext($data['Error'])?></td></tr><?}?><tr><td class=field nowrap>First Name (*):</td><td class=input><input type=text name=fname size=41 maxlength=32 value="<?=prntext($post['fname'])?>"></td></tr><tr><td class=field nowrap>Last Name (*):</td><td class=input><input type=text name=lname size=41 maxlength=32 value="<?=prntext($post['lname'])?>"></td></tr><tr><td class=field nowrap>Company Name<br><small>(optional)</small>:</td><td class=input><input type=text name=company size=41 maxlength=128 value="<?=prntext($post['company'])?>"></td></tr><tr><td class=field nowrap>Address (*):</td><td class=input><input type=text name=address size=41 maxlength=128 value="<?=prntext($post['address'])?>"></td></tr><tr><td class=field nowrap>City (*):</td><td class=input><input type=text name=city size=41 maxlength=64 value="<?=prntext($post['city'])?>"></td></tr><tr><td class=field nowrap>Country (*):</td><td class=input><select name=country><?=showselect($data['Countries'], $post['country'])?></select></td></tr><tr><td class=field nowrap>State (optional):</td><td class=input><input type=text name=state size=20 maxlength=32 value="<?=prntext($post['state'])?>"></td></tr><tr><td class=field nowrap>Postal Code (*):</td><td class=input><input type=text name=zip size=20 maxlength=32 value="<?=prntext($post['zip'])?>"></td></tr><tr><td class=field nowrap>Phone (*):</td><td class=input><input type=text name=phone size=20 maxlength=32 value="<?=prntext($post['phone'])?>"></td></tr></table><br><table class=frame width=100% border=0 cellspacing=1 cellpadding=4><tr><td colspan=2 bgcolor=#CCCCCC><b>CREDIT CARD INFORMATION</b></td></tr><?if($post['CardsInfo']){?><?foreach($post['CardsInfo'] as $key=>$val){?><tr><td colspan=2 class=capl style="background-color:#DDDDDD"><table border=0 cellspacing=0 cellpadding=0><tr><td><input type=radio name=card value="<?=$val['id']?>"<?if($val['id']==$post['card']){?><?$cardchecked=true;?> checked<?}?> id="<?=$val['id']?>card" style="border:0">&nbsp;</td><td>&nbsp;<label for="<?=$val['id']?>card"><b><?=prntext($val['cname'])?></b></label></td></tr></table></td></tr><tr><td class=field nowrap>Card Type:</td><td class=input nowrap><?=prntext($data['CreditCardType'][$val['ctype']])?></td></tr><tr><td class=field nowrap>Name Of Card:</td><td class=input nowrap><?=prntext($val['cname'])?></td></tr><tr><td class=field nowrap>Card Number:</td><td class=input nowrap><?=prnintg($val['cnumber'])?></td></tr><tr><td class=field nowrap>AVS or CVV Code:</td><td class=input nowrap><?=prnintg($val['ccvv'])?></td></tr><tr><td class=field nowrap>Expire Date MM/YYYY:</td><td class=input nowrap><?=prnintg($val['cmonth'])?>/<?=prnintg($val['cyear'])?></td></tr><?}?><?}?><tr><td colspan=2 class=capl style="background-color:#DDDDDD"><table border=0 cellspacing=0 cellpadding=0><tr><td><input type=radio name=card value="-1"<?if(!$cardchecked){?> checked<?}?> id="ccard" style="border:0">&nbsp;</td><td>&nbsp;<label for="ccard"><b>CUSTOM CREDIT CARD</b></label></td></tr></table></td></tr><tr><td class=field nowrap>Card Type (*):</td><td class=input><select name=ctype><?=showselect($data['CreditCardType'], $post['ctype'])?></select></td></tr><tr><td class=field nowrap>Name Of Card (*):</td><td class=input><input type=text name=cname size=41 maxlength=64 value="<?=prntext($post['cname'])?>"></td></tr><tr><td class=field nowrap>Card Number (*):</td><td class=input><input type=text name=cnumber size=41 maxlength=32 value="<?=prntext($post['cnumber'])?>"></td></tr><tr><td class=field nowrap>AVS or CVV Code (*):</td><td class=input><input type=text name=ccvv size=20 maxlength=16 value="<?=prntext($post['ccvv'])?>"></td></tr><tr><td class=field nowrap>Expire Date MM/YYYY (*):</td><td class=input><select name=cmonth><?=showselect($data['Months'], $post['cmonth'])?></select> / <select name=cyear><?=showselect($data['Years'], $post['cyear'])?></select></td></tr></table></td></tr><?}}?>
 
 
-<?if(!$post['ShowCheckInfo']){?><tr><td class=capc><input class=submit type=submit name=send value="CONTINUE"></td></tr><?}?></table></center><?if(!$post['ShowCheckInfo']){?></form><?}?><center><form method=post><input type=hidden name=dtype value="<?=$post['dtype']?>"><input type=hidden name=fees value="<?=$post['fees']?>"><input type=hidden name=amount value="<?=$post['amount']?>"><table class=frame width=100% border=0 cellspacing=1 cellpadding=4><tr><td class=capc><input class=submit type=submit name=cancel value="<?if($post['dtype']=='mail'||$post['dtype']=='echeck'){?>BACK<?}else{?>CANCEL TRANSACTION<?}?>"></td></tr></table></form></center><?}?><?}else{?>SECURITY ALERT: Access Denied<?}?>                                                                                                                        
+<?if(!$post['ShowCheckInfo']){?><tr><td class=capc><input class=submit type=submit name=send value="CONTINUE"></td></tr><?}?></table></center><?if(!$post['ShowCheckInfo']){?></form><?}?><center><form method=post><input type=hidden name=dtype value="<?=$post['dtype']?>"><input type=hidden name=fees value="<?=$post['fees']?>"><input type=hidden name=amount value="<?=$post['amount']?>"><table class=frame width=100% border=0 cellspacing=1 cellpadding=4><tr><td class=capc><input class=submit type=submit name=cancel value="<?if($post['dtype']=='mail'||$post['dtype']=='echeck'){?>BACK<?}else{?>CANCEL TRANSACTION<?}?>"></td></tr></table></form></center><?}?><?}else{?>SECURITY ALERT: Access Denied<?}?>                                                                                                

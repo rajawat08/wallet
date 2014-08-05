@@ -1,11 +1,11 @@
-                                                                                                                                                                                            <div class="container">                                                                                                                                                                                                                                                      <?if(isset($data['ScriptLoaded'])){?><?if(!$data['PostSent']){?>
+                                                                                                                                                  <div class="container">                                                                                                                                                                                                                                                      <?if(isset($data['ScriptLoaded'])){?><?if(!$data['PostSent']){?>
 <div class="gaf-container main-container " style="padding: 0;min-width:inherit">
   
 <div id="content" style="margin:0px;padding:0;min-height:inherit" class="container deposit-funds">
     <div class="row">
        
            
-            <div id="content-main" class="span9">
+            <div id="content-main" class="span8">
             <form class="form deposit_form" method="post">
             <?if($data['Error']){?><span class='label label-error'><?=prntext($data['Error'])?></span><br /><br /><?}?>
             <h2>Send Money To:</h2>
@@ -18,13 +18,13 @@
                         
                             
                             <div class="desc">
-                                <h3 class="span4"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zoanga Member
+                                <h3 class="span4" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zoanga Member
                                     <span class="hoverable pull-right icon-question-sign" ></span>
                                 </h3>
                                 
                           </div>
                           <div class="pull-left">
-                          <input type=text  class="span3" style="height: 27px;" name=receiver size=41 maxlength=32 value="<?=prntext($post['receiver'])?>"><br><font class=remark>Please use username or e-mail.</font>
+                          <input type=text  class="span2" style="height: 27px;" name=receiver size=41 maxlength=32 value="<?=prntext($post['receiver'])?>"><br><font class=remark>Please use username or e-mail.</font>
                             
                         </div>
                        
@@ -462,4 +462,4 @@ $("#amount").on("blur",function(event){
 
 
 
-<?}?><?}else{?>SECURITY ALERT: Access Denied<?}?>                                                                                                                                                                                                                                                                                                                                                                                    
+<?}?><?}else{?>SECURITY ALERT: Access Denied<?}?>                                                                                                                                                                                                                                                                                                                                                

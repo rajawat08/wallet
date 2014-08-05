@@ -28,76 +28,8 @@
 <?if($post['PaysToUnregMembers']){?><?$idx=0;foreach($post['PaysToUnregMembers'] as $value){$bgcolor=$idx%2?'#EEEEEE':'#E7E7E7'?><tr bgcolor=<?=$bgcolor?> onmouseover="setPointer(this,<?=$idx?>,'over','<?=$bgcolor?>','#CCFFCC','#FFCC99')" onmouseout="setPointer(this,<?=$idx?>,'out','<?=$bgcolor?>','#CCFFCC','#FFCC99')" onmousedown="setPointer(this,<?=$idx?>,'click','<?=$bgcolor?>','#CCFFCC','#FFCC99')"><td align=right valign=top><?=prntext($value['receiver'])?></td><td align=right valign=top><?=$value['amount']?></td><td align=right valign=top><?=prnfees($value['fees'])?></td><td align=center valign=top nowrap><?=prndate($post['tdate'])?></td></tr><?$idx++;}?><?}else{?><tr><td class=error colspan=8 align=center>NO TRANSACTIONS FOUND</td></tr><?}?>
 </div>
 
-<div class"row">
-<div class="tab-pane active" id="website-traffic-tab">
-			<div class="btn-group separator bottom pull-right">
-				<button id="websiteTraffic24Hours" class="btn btn-small btn-default">24 Hours</button>
-				<button id="websiteTraffic7Days" class="btn btn-small btn-default">7 Days</button>
-				<button id="websiteTraffic14Days" class="btn btn-small btn-default">14 Days</button>
-				<button id="websiteTrafficClear" class="btn btn-small btn-default" disabled="disabled">Clear</button>
-			</div>
-			<div class="clearfix" style="clear: both;"></div>
-			<div id="placeholder" style="height: 200px;"></div>
-			<div id="overview" style="height: 40px;"></div>
-		</div>
-</div>
-<script src="https://zoanga.com/js/jquery-1.10.1.min.js"></script>
-<!-- Global -->
-	<script>
-    var themerPrimaryColor = '#DA4C4C';
-	var basePath = '',
-		commonPath = '../common/',
 
-		
-		// charts data
-		charts_data = {
-			
-			// 24 hours
-			graph24hours: {
-				from: 1403564400000,
-				to: 1403650800000			},
 
-			// 7 days
-			graph7days: {
-				from: 1403046000000,
-				to: 1403650800000			},
-
-			// 14 days
-			graph14days: {
-				from: 1402441200000,
-				to: 1403650800000			},
-
-			// main dashboard graph - website traffic
-			website_traffic: {
-				d1: [[1401145200000, 3578],[1401231600000, 3037],[1401318000000, 2285],[1401404400000, 2002],[1401490800000, 3464],[1401577200000, 2500],[1401663600000, 2116],[1401750000000, 2656],[1401836400000, 3427],[1401922800000, 2204],[1402009200000, 3686],[1402095600000, 3150],[1402182000000, 2602],[1402268400000, 3349],[1402354800000, 2870],[1402441200000, 3872],[1402527600000, 3539],[1402614000000, 2527],[1402700400000, 2638],[1402786800000, 2373],[1402873200000, 2485],[1402959600000, 2506],[1403046000000, 3540],[1403132400000, 2447],[1403218800000, 2715],[1403305200000, 3249],[1403391600000, 2940],[1403478000000, 3048],[1403564400000, 2647],[1403650800000, 2684]],
-				d2: [[1401145200000, 490],[1401231600000, 462],[1401318000000, 577],[1401404400000, 434],[1401490800000, 411],[1401577200000, 670],[1401663600000, 557],[1401750000000, 636],[1401836400000, 676],[1401922800000, 646],[1402009200000, 666],[1402095600000, 698],[1402182000000, 690],[1402268400000, 589],[1402354800000, 523],[1402441200000, 443],[1402527600000, 487],[1402614000000, 437],[1402700400000, 668],[1402786800000, 592],[1402873200000, 511],[1402959600000, 611],[1403046000000, 597],[1403132400000, 629],[1403218800000, 577],[1403305200000, 403],[1403391600000, 401],[1403478000000, 566],[1403564400000, 448],[1403650800000, 576]]	
-			}
-
-		};
-	</script>
-	<!-- Charts Helper Demo Script -->
-	<script src="https://zoanga.com/js/charts/charts.helper90fc.js?1403808223"></script>
-    	<!-- Sparkline -->
-	<script src="https://zoanga.com/js/charts/jquery.sparkline.min.js" type="text/javascript"></script>
-	
-		<!--  Flot (Charts) JS -->
-	<script src="https://zoanga.com/js/charts/jquery.flot.js" type="text/javascript"></script>
-	<script src="https://zoanga.com/js/charts/jquery.flot.pie.js" type="text/javascript"></script>
-	<script src="https://zoanga.com/js/charts/jquery.flot.tooltip.js" type="text/javascript"></script>
-	<script src="https://zoanga.com/js/charts/jquery.flot.selection.js"></script>
-	<script src="https://zoanga.com/js/charts/jquery.flot.resize.js" type="text/javascript"></script>
-	<script src="https://zoanga.com/js/charts/jquery.flot.orderBars.js" type="text/javascript"></script>
-    
-    <script>
-    $(function()
-{
-    alert(1);
-	
-	// initialize charts
-	if (typeof charts != 'undefined') 
-		charts.initIndex();
-});
-    </script>
 </div>
 </center>
 <?}else{?>SECURITY ALERT: Access Denied<?}?>
