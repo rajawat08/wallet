@@ -47,6 +47,8 @@ if(is_info_empty($uid)){
 ###############################################################################
 $post=select_info($uid, $post);
 $data['Balance']=select_balance($uid);
+$data['SendMethod']= setSendMethod($uid,$data['SendMethod']);
+//print_r($data['SendMethod']);
 ###############################################################################
 if($post['send']){
  

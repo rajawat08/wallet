@@ -11,11 +11,54 @@
             <h2>Send Money To:</h2>
             <ul class="option unstyled">
                
+                 <? $count = 0; foreach($data['SendMethod'] as $key=>$value){if($value['actv']){?>
+                 <li id="deposit.paypal.referenceList" class="<? if($count==0) { ?>selected <? } ?> round-top first">
+                      <h4 class='verified-banner'><span class='label label-success'>Verified</span></h4>
+                      
+                        <div class="span1 option-radio-container">
+                            <input id="deposit.paypal.referenceRadio" type="radio" name="dtype"    value="<?=$key?>" <?if($key==$post['dtype']){?> checked<?}?> >
+                        </div>
+                            <? if(prntext($value['name'])=='CreditCard'){ ?>
+                            <span class="icon-misc cc2"></span>
+                            <? }else if(prntext($value['name'])=='PayPal'){ ?>
+                            <span class="icon-misc paypal"></span>
+                             <? }else if(prntext($value['name'])=='Currency Cloud'){ ?>
+                            <span class="icon-misc " style="background: url(<?=$data['host']?>/assets/img/logo.png) no-repeat;height:27px;"></span>                            
+                            <? }else { ?>
+                            <span class="icon-misc " style="background: none;"></span>
+                            <? } ?>
+                            <div class="desc">
+                                <h3 id="deposit.paypal.referenceLabel" ><?
+                                if(prntext($value['name'])=='Currency Cloud'){
+                                    echo "Bank Transfer";
+                                }
+                                else {
+                                    echo prntext($value['name']);
+                                }
+                                
+                                ?>
+                                    <span class="hoverable pull-right icon-question-sign" ></span>
+                                </h3>
+                                <p>Fee: <span id="deposit.paypal.reference_fee_descr" data-descrname="deposit.paypal.reference"><?=prntext($data['Currency'])?><?=prnsumm($value['fees'])?>  fixed and <?=prnsumm($value['prcn'])?>%fee is taken.</span></p>                      
+                          </div>
+
+                       
+                          <div class="clearfix"></div>
+                          
+                      </li>
+               
                 
-                 <li id="deposit.paypal.referenceList" class="selected round-top first">
+                <?
+                 $count++;
+                }
+                   
+                }?>
+                 <li id="deposit.paypal.referenceList" class=" round-top first">
                       <h4 class='verified-banner'><span class='label label-success'>Verified Member</span></h4>
                       
-                        
+                        <div class="span1 option-radio-container">
+                            <input id="deposit.paypal.referenceRadio" type="radio" name="dtype"    value="3" <?if($key==$post['dtype']){?> checked<?}?> >
+                        </div>
                             
                             <div class="desc">
                                 <h3 class="span4" > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zoanga Member

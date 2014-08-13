@@ -79,6 +79,24 @@ function getUserPermission($uid)
 }
 
 ###############################################################################
+function setSendMethod($uid,$SendMethod)
+{
+ 
+  $permission=db_rows(
+    "SELECT send_creditcard,send_paypal  FROM `db_permission` WHERE  u_id=$uid"
+  );
+  
+   if($permission[0]['send_creditcard']==1)
+  {
+    $SendMethod['creditcard']['actv']=1;
+   }
+   
+  if($permission[0]['send_paypal']==1)
+  {
+    $SendMethod['paypal']['actv']=1;
+   }
+   return $SendMethod;
+ }
 function setDepositeMethod($uid,$DepositMethod)
 {
  
